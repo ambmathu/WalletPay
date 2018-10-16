@@ -1,0 +1,156 @@
+Test Cases for Customer Repository.
+  
+
+  1. Public Customer save(Customer c)
+
+    POSITIVE SCENARIO:
+    
+    Given the user creates an account Save method  is called
+    When the user entered name="Ambika",mobile="880000000", wallet="0"
+    Then account should created with name="Ambika",mobile="880000000", wallet="0"
+	
+	Given the user creates an account Save method  is called
+    When the user entered name="Ambika",mobile="880000000", wallet="500"
+    Then account should created with name="Ambika",mobile="880000000", wallet="500"
+
+    NEGATIVE SCENARIO:
+    
+	Given the user creates an account Save method  is called
+    When the user entered name="",mobile="", wallet="0"
+    Then account should not be created with error message Invalid user name & mobile no.
+	
+	
+    Given the user creates an account Save method  is called
+    When the user entered name="",mobile="880000000", wallet="0"
+    Then account should not be created with error message Invalid user name.
+
+    Given the user creates an account Save method  is called
+    When the user entered name="$@#!*",mobile="880000000", wallet="0"
+    Then account should not be created with error message Invalid user name.    
+    
+    Given the user creates an account Save method  is called
+    When the user entered name="Ambika",mobile="ABC", wallet="0"
+    Then account should not be created with error message Invalid mobile no. 
+     
+    Given the user creates an account Save method  is called
+    When the user entered name="Ambika",mobile="", wallet="0"
+    Then account should not be created with error message Invalid mobile no.
+
+
+    Given the user creates an account Save method  is called
+    When the user entered name="Ambika",mobile="@#$%", wallet="0"
+    Then account should not be created with error message Invalid mobile no.
+
+
+    Given the user creates an account Save method  is called
+    When the user entered name="Ambika",mobile="99000000", wallet="-800"
+    Then account should not be created with error message Invalid amount.
+	
+	Given the user creates an account Save method  is called
+    When the user entered name="Ambika",mobile="99000000", wallet="null"
+    Then account should not be created with error message Invalid amount.
+	
+
+2. Public Customer findByMobile(String mobile)
+    
+	POSITIVE SCENARIO:
+	
+    Given the user enter mobile number findByMobile method  is called
+    When the user entered mobile="880000000"
+    Then It should return Customer details with related name="Ambika",mobile="880000000", wallet="800"
+	
+	NEGATIVE SCENARIO:
+	
+	Given the user enter mobile number findByMobile method  is called
+    When the user entered mobile="Does not Exist" 
+    Then It should return error message Customer does not exit,please create an account.
+	
+	Given the user creates an account findByMobile method  is called
+    When the user entered mobile="ABC"
+    Then It should return error message Invalid mobile no. 
+     
+    Given the user creates an account findByMobile method  is called
+    When the user entered mobile=""
+    Then It should return error message Invalid mobile no.
+
+
+    Given the user creates an account findByMobile method  is called
+    When the user entered mobile="@#$%"
+    Then It should return error message Invalid mobile no.
+	
+3. Customer addCustomer(String name,String mobile,BigInteger amount)
+  
+    POSITIVE SCENARIO:
+	
+    Given the user creates an account addCustomer method  is called
+    When the user entered name="Ambika",mobile="880000000", wallet="0"
+    Then account should created with name="Ambika",mobile="880000000", wallet="0" 
+
+    Given the user creates an account addCustomer method  is called
+    When the user entered name="Ambika",mobile="880000000", wallet="100"
+    Then account should created with name="Ambika",mobile="880000000", wallet="100" 
+
+    NEGATIVE SCENARIO:
+    
+	Given the user creates an account addCustomer method  is called
+    When the user entered name="",mobile="", wallet="0"
+    Then account should not be created with error message Invalid user name & mobile no.
+	
+	
+    Given the user creates an account addCustomer method  is called
+    When the user entered name="",mobile="880000000", wallet="0"
+    Then account should not be created with error message Invalid user name.
+
+    Given the user creates an account addCustomer method  is called
+    When the user entered name="$@#!*",mobile="880000000", wallet="0"
+    Then account should not be created with error message Invalid user name.    
+    
+    Given the user creates an account addCustomer method  is called
+    When the user entered name="Ambika",mobile="ABC", wallet="0"
+    Then account should not be created with error message Invalid mobile no. 
+     
+    Given the user creates an account addCustomer method  is called
+    When the user entered name="Ambika",mobile="", wallet="0"
+    Then account should not be created with error message Invalid mobile no.
+
+
+    Given the user creates an account addCustomer method  is called
+    When the user entered name="Ambika",mobile="@#$%", wallet="0"
+    Then account should not be created with error message Invalid mobile no.
+
+
+    Given the user creates an account addCustomer method  is called
+    When the user entered name="Ambika",mobile="99000000", wallet="-800"
+    Then account should not be created with error message Invalid amount.
+    
+    Given the user creates an account addCustomer method  is called
+    When the user entered name="Ambika",mobile="99000000", wallet="null"
+    Then account should not be created with error message Invalid amount.
+
+
+4.Customer showBalance(String mobileNo)	
+   
+   POSITIVE SCENARIO:
+	
+    Given the user enter mobile number showBalance method  is called
+    When the user entered mobile="880000000"
+    Then It should return Customer details with related name="Ambika",mobile="880000000", wallet="800"
+	
+	NEGATIVE SCENARIO:
+	
+	Given the user enter mobile number showBalance method  is called
+    When the user entered mobile="Does not Exist"
+    Then It should return error message Customer does not exit,please create an account.
+	
+	Given the user creates an account showBalance method  is called
+    When the user entered mobile="ABC"
+    Then It should return error message Invalid mobile no. 
+     
+    Given the user creates an account showBalance method  is called
+    When the user entered mobile=""
+    Then It should return error message Invalid mobile no.
+
+
+    Given the user creates an account showBalance method  is called
+    When the user entered mobile="@#$%"
+    Then It should return error message Invalid mobile no.
